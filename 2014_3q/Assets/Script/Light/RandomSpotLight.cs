@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class RandomSpotLight : MonoBehaviour {
 
 	private GameObject spotLight;
 	private List<GameObject> lightList;
+	private GameObject lastLight;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,13 @@ public class RandomSpotLight : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (lastLight) {
+			if (lastLight.light.intensity <= 0) {
+				// ここでシーン移動的な
+				Destroy(lastLight);
+				Application.LoadLevelAdditive ("GameScene");
+			}
+		}
 	}
 	void Create () {
 		if (lightList.Count < 200) {
@@ -25,10 +33,12 @@ public class RandomSpotLight : MonoBehaviour {
 			}
 			lightList.Add((GameObject)Instantiate(spotLight, new Vector3(x,y,0), Quaternion.identity));
 		} else {
+			foreach(GameObject obj in lightList) {
+				Destroy(obj);
+			}
 			CancelInvoke();
-			GameObject light = (GameObject)Instantiate(spotLight, new Vector3(0,0,0), Quaternion.identity);
-//			light.transform
-
+			lastLight = (GameObject)Instantiate(spotLight, new Vector3(0,0,0), Quaternion.identity);
+			lastLight.light.spotAngle = 150;
 		}
 	}
 }
