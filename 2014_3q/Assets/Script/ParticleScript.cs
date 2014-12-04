@@ -24,7 +24,7 @@ public class ParticleScript : MonoBehaviour {
 		// タイマーを仕込むことで生まれたばかりのパーティクルオブジェクトを保護する
 		if (gameObject.particleSystem != null &&
 		    gameObject.particleSystem.particleCount == 0 &&
-		    timer > 0.2f) {
+		    timer > gameObject.particleSystem.startLifetime) {
 			Destroy (gameObject);
 		}
 	}
@@ -32,6 +32,8 @@ public class ParticleScript : MonoBehaviour {
 	void OnParticleCollision(GameObject obj) {
 		if (obj.name == "BombPrefab(Clone)") {
 			obj.GetComponent<UpdateBomb> ().explosionBomb ();
+		} else if (obj.name == "unitychan") {
+			obj.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody> ().damage ();
 		} else {
 //			Debug.Log(obj.name);
 		}
