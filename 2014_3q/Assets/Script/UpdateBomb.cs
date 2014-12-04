@@ -29,7 +29,6 @@ public class UpdateBomb : MonoBehaviour {
 			this.transform.localScale = new Vector3 (scale, scale, scale);
 		// 爆発させる
 		} else {
-			// ここにパーティクル処理追加すればいいのかなあ
 			explosionBomb();
 		}
 	}
@@ -38,5 +37,12 @@ public class UpdateBomb : MonoBehaviour {
 	public void explosionBomb() {
 		GameObject explosionObj = (GameObject)Instantiate (explosion, gameObject.transform.position, Quaternion.identity);
 		explosionObj.GetComponent<ParticleScript>().Create(gameObject);
+	}
+	
+	// こはくちゃんが爆弾から離れたら衝突判定発生
+	void OnTriggerExit(Collider obj) {
+		if (obj.gameObject.name == "unitychan") {
+			this.collider.isTrigger = false;
+		}
 	}
 }

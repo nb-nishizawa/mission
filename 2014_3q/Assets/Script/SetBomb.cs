@@ -17,7 +17,11 @@ public class SetBomb : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Mouse0)) {
-			bombList.Add((GameObject)Instantiate(bomb, unityChan.transform.position, Quaternion.identity));
+			float x,y,z;
+			x = unityChan.transform.position.x;
+			y = unityChan.transform.position.y + bomb.transform.localScale.y / 2;
+			z = unityChan.transform.position.z;
+			bombList.Add((GameObject)Instantiate(bomb, new Vector3(x, y, z), Quaternion.identity));
 		}
 		// debug
 		if (Input.GetKeyDown (KeyCode.Mouse1)) {
