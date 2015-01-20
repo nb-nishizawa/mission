@@ -51,6 +51,13 @@ namespace UnityChan
 		static int restState = Animator.StringToHash ("Base Layer.Rest");
 		static int damageState = Animator.StringToHash ("Base Layer.Damage");
 
+		private NGUIButtonUp btnUp;
+		private NGUIButtonDown btnDown;
+		private NGUIButtonLeft btnLeft;
+		private NGUIButtonRight btnRight;
+//		private float acceleration = 0.05f; 
+		public JoyStick AtatchJoyStick;
+
 		// 初期化
 		void Start ()
 		{
@@ -64,14 +71,68 @@ namespace UnityChan
 			// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 			orgColHight = col.height;
 			orgVectColCenter = col.center;
+
+			btnUp = GameObject.Find ("ButtonUp").GetComponent<NGUIButtonUp> ();
+			btnDown = GameObject.Find ("ButtonDown").GetComponent<NGUIButtonDown> ();
+			btnLeft = GameObject.Find ("ButtonLeft").GetComponent<NGUIButtonLeft> ();
+			btnRight = GameObject.Find ("ButtonRight").GetComponent<NGUIButtonRight> ();
+
 		}
 	
 	
 		// 以下、メイン処理.リジッドボディと絡めるので、FixedUpdate内で処理を行う.
 		void FixedUpdate ()
 		{
-			float h = Input.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
-			float v = Input.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
+			float h = AtatchJoyStick.Position.x;
+			float v = AtatchJoyStick.Position.y;
+//			float h = Input.GetAxis ("Horizontal");				// 入力デバイスの水平軸をhで定義
+//			float v = Input.GetAxis ("Vertical");				// 入力デバイスの垂直軸をvで定義
+//			if (btnUp.status) {
+//				if (v < 0) {
+//					v = 0;
+//				}
+//				if (v < 1.0f) {
+//					v += acceleration;
+//				}
+//			} else if (btnDown.status) {
+//				if (v > 0) {
+//					v = 0;
+//				}
+//				if (v > -1.0f) {
+//					v -= acceleration;
+//				}
+//			} else {
+//				if (v > 0) {
+//					v -= acceleration;
+//				} else if (v < 0) {
+//					v += acceleration;
+//				}
+//			}
+//
+//			if (btnRight.status) {
+//				if (h < 0) {
+//					h = 0;
+//				}
+//				if (h < 1.0f) {
+//					h += acceleration;
+//				}
+//			} else if (btnLeft.status) {
+//				if (h > 0) {
+//					h = 0;
+//				}
+//				if (h > -1.0f) {
+//					h -= acceleration;
+//				}
+//			} else {
+//				if (h > 0) {
+//					h -= acceleration;
+//				} else if (h < 0) {
+//					h += acceleration;
+//				} else {
+//				}
+//			}
+
+			
 			anim.SetFloat ("Speed", v);							// Animator側で設定している"Speed"パラメタにvを渡す
 			anim.SetFloat ("Direction", h); 						// Animator側で設定している"Direction"パラメタにhを渡す
 			anim.speed = animSpeed;								// Animatorのモーション再生速度に animSpeedを設定する
@@ -114,8 +175,11 @@ namespace UnityChan
 				transform.localPosition += velocity * Time.fixedDeltaTime;
 
 				// 左右のキー入力でキャラクタをY軸で旋回させる
-				transform.Rotate (0, h * rotateSpeed, 0);	
-		
+				if (v >= 0) {
+					transform.Rotate (0, h * rotateSpeed, 0);	
+				} else {
+					transform.Rotate (0, -h * rotateSpeed, 0);
+				}
 
 				// 以下、Animatorの各ステート中での処理
 				// Locomotion中
@@ -206,10 +270,19 @@ namespace UnityChan
 			col.center = orgVectColCenter;
 		}
 
+		// ダメージ受けた時
 		public void damage() {
-			if (currentBaseState.nameHash != damageState) {
+			if (!checkDamageState()) {
 				anim.SetBool ("Damage", true);
 			}
+		}
+
+		// 現在のステートを返す
+		public bool checkDamageState() {
+			if (currentBaseState.nameHash == damageState) {
+				return true;
+			}
+			return false;
 		}
 	}
 }
