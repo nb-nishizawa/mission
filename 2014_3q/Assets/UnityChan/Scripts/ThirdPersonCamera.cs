@@ -16,7 +16,7 @@ namespace UnityChan
 		Transform jumpPos;			// Jump Camera locater
 	
 		// スムーズに繋がない時（クイック切り替え）用のブーリアンフラグ
-		bool bQuickSwitch = false;	//Change Camera Position Quickly
+		bool bQuickSwitch = true;	//Change Camera Position Quickly
 	
 	
 		void Start ()

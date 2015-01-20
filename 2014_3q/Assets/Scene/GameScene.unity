@@ -2529,8 +2529,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
   m_PrefabInternal: {fileID: 889500854}
   m_GameObject: {fileID: 773448257}
-  m_LocalRotation: {x: .939692616, y: 0, z: 0, w: .342020154}
-  m_LocalPosition: {x: 0, y: 3.25, z: -2}
+  m_LocalRotation: {x: .30070582, y: 0, z: 0, w: .953716993}
+  m_LocalPosition: {x: 0, y: 4.53999996, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 906618250}
@@ -2856,11 +2856,35 @@ Prefab:
       objectReference: {fileID: 537849347}
     - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalRotation.x
-      value: .939692616
+      value: .30070582
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .342020154
+      value: .953716993
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400006, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.53999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: backwardSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: rotateSpeed
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
@@ -3120,8 +3144,8 @@ MonoBehaviour:
   useCurves: 1
   useCurvesHeight: .5
   forwardSpeed: 5
-  backwardSpeed: 2
-  rotateSpeed: 2
+  backwardSpeed: 5
+  rotateSpeed: 3
   jumpPower: 2
   AtatchJoyStick: {fileID: 537849347}
 --- !u!54 &906618254
@@ -6352,6 +6376,7 @@ GameObject:
   - 4: {fileID: 1521051549}
   - 114: {fileID: 1521051548}
   - 154: {fileID: 1521051547}
+  - 114: {fileID: 1521051550}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -6408,6 +6433,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!114 &1521051550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1521051546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adaac106d6aa2eb41b4d6fbf4a582152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: 0
+  wallList: []
+  blockList: []
 --- !u!1 &1526085640
 GameObject:
   m_ObjectHideFlags: 0
