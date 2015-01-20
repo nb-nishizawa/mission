@@ -34,6 +34,9 @@ public class ParticleScript : MonoBehaviour {
 			obj.GetComponent<UpdateBomb> ().explosionBomb ();
 		} else if (obj.name == "unitychan") {
 			obj.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody> ().damage ();
+		} else if (obj.name == "block") {
+			GameObject trn = GameObject.Find("Terrain");
+			trn.GetComponent<CreateField> ().deleteBlock (obj);
 		} else {
 //			Debug.Log(obj.name);
 		}

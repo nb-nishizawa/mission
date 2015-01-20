@@ -2808,7 +2808,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400076, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 115.843903
+      value: 42.3385468
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2816,7 +2816,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 113.006622
+      value: 41.8714409
       objectReference: {fileID: 0}
     - target: {fileID: 400076, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2886,6 +2886,10 @@ Prefab:
       propertyPath: rotateSpeed
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8d5a0e0d58f4e4176a844a1a03976c19, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 69c3ed15e9d13481e8f7dc4db5532fb6, type: 2}
   m_RootGameObject: {fileID: 906618249}
@@ -3082,7 +3086,7 @@ Transform:
   m_PrefabInternal: {fileID: 889500854}
   m_GameObject: {fileID: 906618249}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 115.843903, y: 0, z: 113.006622}
+  m_LocalPosition: {x: 42.3385468, y: 0, z: 41.8714409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 773448258}
@@ -3781,7 +3785,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 942400641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.10351562e-05, z: 0}
+  m_LocalPosition: {x: -.752563477, y: .756347656, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143516585}
@@ -6444,7 +6448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adaac106d6aa2eb41b4d6fbf4a582152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   wallList: []
   blockList: []
 --- !u!1 &1526085640
@@ -9298,11 +9301,11 @@ MonoBehaviour:
     e00: 360
     e01: 0
     e02: 0
-    e03: -45751.793
+    e03: -45751.0391
     e10: 0
     e11: 360
     e12: 0
-    e13: -633.645264
+    e13: -634.40155
     e20: 0
     e21: 0
     e22: 360

@@ -72,10 +72,10 @@ namespace UnityChan
 			orgColHight = col.height;
 			orgVectColCenter = col.center;
 
-			btnUp = GameObject.Find ("ButtonUp").GetComponent<NGUIButtonUp> ();
-			btnDown = GameObject.Find ("ButtonDown").GetComponent<NGUIButtonDown> ();
-			btnLeft = GameObject.Find ("ButtonLeft").GetComponent<NGUIButtonLeft> ();
-			btnRight = GameObject.Find ("ButtonRight").GetComponent<NGUIButtonRight> ();
+//			btnUp = GameObject.Find ("ButtonUp").GetComponent<NGUIButtonUp> ();
+//			btnDown = GameObject.Find ("ButtonDown").GetComponent<NGUIButtonDown> ();
+//			btnLeft = GameObject.Find ("ButtonLeft").GetComponent<NGUIButtonLeft> ();
+//			btnRight = GameObject.Find ("ButtonRight").GetComponent<NGUIButtonRight> ();
 
 		}
 	
